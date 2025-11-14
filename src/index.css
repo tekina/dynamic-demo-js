@@ -1,0 +1,225 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light;
+    color: #111827;
+    background-color: #ffffff; /*#f3f4f6;*/
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+/* ===== Layout ===== */
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+}
+
+@media (max-width: 900px) {
+    .login-page {
+        grid-template-columns: 1fr;
+    }
+
+    .login-hero {
+        display: none;
+    }
+
+    .login-panel {
+        min-height: 100vh;
+        justify-content: center;
+    }
+}
+
+/* ===== Hero (left) ===== */
+
+.login-hero {
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    background: #ffffff; /*linear-gradient(135deg, #eef2ff, #ffffff);*/
+    border-right: 1px solid #e5e7eb;
+}
+
+.login-hero-content {
+    max-width: 480px;
+}
+
+.logo-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    background: #37ec84; /*linear-gradient(135deg, #22c55e, #0ea5e9);*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #020617;
+}
+
+.logo-text {
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.login-hero h1 {
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    margin: 0 0 1rem;
+    color: #111827;
+}
+
+.login-hero p {
+    margin: 0 0 1.5rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.login-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.4rem;
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+/* ===== Login panel (right) ===== */
+
+.login-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.5rem;
+}
+
+.login-panel-inner {
+    width: 100%;
+    max-width: 420px;
+    background: #eeeeee;
+    border-radius: 24px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+    padding: 2rem 2.25rem 1.75rem;
+}
+
+.login-panel-title {
+    margin: 0 0 0.4rem;
+    font-size: 1.4rem;
+    color: #111827;
+}
+
+.login-panel-subtitle {
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+.login-footer-text {
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.login-footer-text a {
+    color: #15803d;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(22, 163, 74, 0.6);
+}
+
+.login-footer-text a:hover {
+    border-bottom-style: solid;
+}
+
+/* ===== Dynamic widget theme via CSS variables ===== */
+/* Docs recommend setting vars on .dynamic-shadow-dom  */
+
+.dynamic-shadow-dom {
+    /* Fonts */
+    --dynamic-font-family-primary: system-ui, -apple-system, BlinkMacSystemFont,
+    "SF Pro Text", sans-serif;
+    --dynamic-font-family-numbers: "Roboto Mono", ui-monospace, SFMono-Regular,
+    Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    /* Surfaces */
+    --dynamic-base-1: #f9fafb;
+    --dynamic-base-2: #ffffff;  /* #e5e7eb; */
+    --dynamic-base-3: #37ec84;
+    --dynamic-base-4: #e5e7eb;
+    --dynamic-base-5: #d1d5db;
+
+    /* Text */
+    --dynamic-text-primary: #111827;
+    --dynamic-text-secondary: #4b5563;
+    --dynamic-text-tertiary: #000000;
+    --dynamic-text-link: #15803d;
+
+    /* Brand */
+    --dynamic-brand-primary-color: #37ec84;
+    --dynamic-brand-secondary-color: #22c55e1f; /*rgba(34, 197, 94, 0.12);*/
+    --dynamic-connection-green: #22c55e;
+
+    /* Shape & hover */
+    --dynamic-border-radius: 18px;
+    --dynamic-hover: rgba(15, 23, 42, 0.03);
+
+    /* Shadows / overlay */
+    --dynamic-overlay: rgba(15, 23, 42, 0.55);
+    --dynamic-shadow-down-1: 0 1px 2px rgba(15, 23, 42, 0.08);
+    --dynamic-shadow-down-2: 0 4px 10px rgba(15, 23, 42, 0.12);
+    --dynamic-shadow-down-3: 0 18px 40px rgba(15, 23, 42, 0.16);
+
+    /* Footer inside widget */
+    --dynamic-footer-background-color: transparent;
+    --dynamic-footer-text-color: #9ca3af;
+    --dynamic-footer-icon-color: #9ca3af;
+    --dynamic-footer-border: none;
+
+    /* 🚨 This is the Connect / “Continue with a wallet” button */
+    --dynamic-connect-button-background: #22c55e;
+    --dynamic-connect-button-color: #022c22;
+    --dynamic-connect-button-border: none;
+    --dynamic-connect-button-shadow: 0 10px 25px rgba(34, 197, 94, 0.45);
+
+    --dynamic-connect-button-background-hover: #22c55e;
+    /*        linear-gradient(*/
+    /*        135deg,*/
+    /*        #22c55e,*/
+    /*        #0ea5e9*/
+    /*);*/
+    --dynamic-connect-button-color-hover: #022c22;
+    --dynamic-connect-button-border-hover: none;
+    --dynamic-connect-button-shadow-hover: 0 14px 35px
+    rgba(14, 116, 144, 0.5);
+}
+
