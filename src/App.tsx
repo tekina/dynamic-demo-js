@@ -1,6 +1,9 @@
 import { DynamicContextProvider } from '@dynamic-labs/sdk-react-core';
 import { EthereumWalletConnectors } from '@dynamic-labs/ethereum';
 import { DynamicEmbeddedWidget } from '@dynamic-labs/sdk-react-core';
+import {
+    ZeroDevSmartWalletConnectors,
+} from "@dynamic-labs/ethereum-aa";
 import './index.css';
 
 const envId = import.meta.env.VITE_DYNAMIC_ENV_ID as string;
@@ -11,7 +14,7 @@ export default function App() {
             theme="light"
             settings={{
                 environmentId: envId,
-                walletConnectors: [EthereumWalletConnectors],
+                walletConnectors: [EthereumWalletConnectors, ZeroDevSmartWalletConnectors],
             }}
         >
             {/* Full-page layout */}
